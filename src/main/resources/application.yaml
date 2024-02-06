@@ -1,0 +1,10 @@
+my:
+  conf:
+    props:
+      pojo-map:
+        key1:
+          str: pojo str for key1
+          str-list:
+            - pojo list for key1 element1
+            - pojo list for key1 element2
+      prop0: hello!
