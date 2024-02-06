@@ -1,10 +1,13 @@
 package com.mytests.spring.springBootSmokeTest.web;
 
 import com.mytests.spring.springBootSmokeTest.components.MyComponent;
+import com.mytests.spring.springBootSmokeTest.data.Person;
 import com.mytests.spring.springBootSmokeTest.data.PersonRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 
 @Controller
@@ -22,7 +25,8 @@ public class PersonViewController {
     @RequestMapping("/")
     public String home(ModelMap model) {
         model.addAttribute("greeting", myComponent.getId());
-        model.addAttribute("persons", repository.findAll());
+        List<Person> personList = repository.findAll();
+        model.addAttribute("people", personList);
         return "home";
     }
 }
