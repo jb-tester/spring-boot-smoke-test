@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+<p th:text="${greeting}">greeting</p>
+<table>
+    <thead>
+    <tr>
+        <th> Name </th>
+        <th> Lastname </th>
+        <th> Age </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${people.empty}">
+        <td colspan="2"> No person available </td>
+    </tr>
+    <tr th:each="person : ${people}">
+        <td><span th:text="${person.firstname}"> firstname </span></td>
+        <td><span th:text="${person.lastname}"> lastname </span></td>
+        <td><span th:text="${person.age}"> age </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
