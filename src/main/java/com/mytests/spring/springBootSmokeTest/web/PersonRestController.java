@@ -24,9 +24,11 @@ public class PersonRestController {
     }
 
     @GetMapping("/customByLastname/{name}")
-    public List<Person> customQuery(@PathVariable String name) {
-
-        return repository.customByNameQuery(name);
+    public String personByLastName(@PathVariable String name) {
+        StringBuilder rez = new StringBuilder();
+        List<Person> people = repository.customByNameQuery(name);
+        people.iterator().forEachRemaining(rez::append);
+        return String.valueOf(rez);
     }
 
     @Transactional
