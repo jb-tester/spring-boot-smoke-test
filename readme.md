@@ -37,3 +37,5 @@
   15. Spring Diagrams test: invoke from gutter icon, from the context menu, from the Spring view toolbar
   16. Edit Starters check: add/remove some dependencies
   17. Endpoints view: check the URLs presence, check the tabs
+  18. Runtime beans/request mappings: check that the components get the navigable gutter icons in runtime; check the controller mapping methods runtime gutter icons
+  19. Test classes: check the URLs completion/navigation for different tests 
