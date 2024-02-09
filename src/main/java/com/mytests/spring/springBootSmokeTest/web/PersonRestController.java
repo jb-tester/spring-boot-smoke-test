@@ -38,4 +38,13 @@ public class PersonRestController {
         return "New person " + person + " was added";
     }
 
+    @GetMapping("/getNamesByAge/{age:[0-9]+}")
+    public String getNamesByAge(@PathVariable("age") int age) {
+        StringBuilder res = new StringBuilder();
+        for (Person person : repository.findByAgeGreaterThan(age)) {
+            res.append(person.getFirstname()).append(" ").append(person.getLastname()).append(", ");
+        }
+
+        return String.valueOf(res);
+    }
 }    
