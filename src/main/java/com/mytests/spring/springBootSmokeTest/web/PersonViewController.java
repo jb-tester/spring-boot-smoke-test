@@ -29,4 +29,10 @@ public class PersonViewController {
         model.addAttribute("people", personList);
         return "home";
     }
+
+    @RequestMapping("/test")
+    public String test(ModelMap model) {
+        model.addAttribute("test", "test_attr1");
+        return "test";
+    }
 }

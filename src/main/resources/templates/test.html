@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link th:href="@{/styles/test.css}" rel="stylesheet"/>
+    <script th:inline="javascript">
+        var attr_var = /*[[${test}]]*/;
+    </script>
+    <script type="text/javascript" th:src="@{/scripts/test.js}"></script>
+</head>
+<body>
+<h2>test page</h2>
+<p th:text="${test}">
+    <strong>check model attribute!</strong>
+</p>
+<label id="lbl">test</label>
+<button type="button" th:onclick="showAlert(attr_var);">show alert</button>
+
+</body>
+</html>
