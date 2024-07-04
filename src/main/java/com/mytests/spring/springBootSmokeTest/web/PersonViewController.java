@@ -32,7 +32,7 @@ public class PersonViewController {
 
     @RequestMapping("/test")
     public String test(ModelMap model) {
-        model.addAttribute("test", "test_attr1");
+        model.addAttribute("test_attr", "test_attr1");
         return "test";
     }
 }

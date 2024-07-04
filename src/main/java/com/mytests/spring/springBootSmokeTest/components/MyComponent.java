@@ -1,5 +1,6 @@
 package com.mytests.spring.springBootSmokeTest.components;
 
+import com.mytests.spring.springBootSmokeTest.data.PersonRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 

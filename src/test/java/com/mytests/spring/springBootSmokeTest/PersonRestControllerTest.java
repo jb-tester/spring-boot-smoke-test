@@ -26,6 +26,7 @@ public class PersonRestControllerTest {
 
 	@Test
 	public void getByNameTest() throws Exception {
+
 		mvc.perform(MockMvcRequestBuilders.get("/customByLastname/Petrov").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(content().string(equalTo("Person{id=1, firstname='Ivan', lastname='Petrov', age=25}Person{id=3, firstname='Petr', lastname='Petrov', age=30}")));
