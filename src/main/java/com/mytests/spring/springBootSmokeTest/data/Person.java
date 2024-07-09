@@ -3,7 +3,8 @@ package com.mytests.spring.springBootSmokeTest.data;
 import jakarta.persistence.*;
 
 @Entity
-@NamedNativeQuery(name = "native", query = "select * from person ")
+@NamedNativeQuery(name = "Person.findByAge", query = "select * from person where AGE > ?1")
+@NamedQuery(name = "Person.myNamedQuery", query = "select  p from Person p")
 public class Person {
 
     @Id

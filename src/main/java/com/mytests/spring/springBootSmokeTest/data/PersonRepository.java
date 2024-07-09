@@ -15,4 +15,10 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
     List<Person> customByNameQuery(@Param("lname") String arg);
 
     List<Person> findByAgeGreaterThan(int age);
+
+    // named native with conventional name
+    List<Person> findByAge(int age);
+
+    // named jpa with non-conventional name
+    List<Person> myNamedQuery(String ln);
 }
