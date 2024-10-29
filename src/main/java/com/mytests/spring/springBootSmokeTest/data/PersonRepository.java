@@ -1,5 +1,6 @@
 package com.mytests.spring.springBootSmokeTest.data;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -15,4 +16,7 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
     List<Person> customByNameQuery(@Param("lname") String arg);
 
     List<Person> findByAgeGreaterThan(int age);
+
+
+    List<Person> getPersonByLastnameAndFirstname(String lastname, String firstname, Sort sort);
 }

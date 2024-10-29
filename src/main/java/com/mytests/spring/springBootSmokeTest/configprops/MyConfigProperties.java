@@ -14,7 +14,8 @@ public class MyConfigProperties {
         this.pojoMap = pojoMap;
     }
 
-    String prop0;
+    String prop0 = "prop0_default";
+
     Map<String,InnerPojo> pojoMap;
 
     private class InnerPojo {
