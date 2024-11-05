@@ -5,12 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import com.mytests.spring.springBootSmokeTest.configs.beans.B1;
 
-/**
- * *
- * <p>Created by irina on 2/24/2024.</p>
- * <p>Project: spring-boot-smoke-test</p>
- * *
- */
+
 @Configuration
 public class MyConfig {
     @Bean
