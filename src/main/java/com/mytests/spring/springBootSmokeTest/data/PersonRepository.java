@@ -16,6 +16,9 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 
     List<Person> findByAgeGreaterThan(int age);
 
+
+    List<Person> getPersonByLastnameAndFirstname(String lastname, String firstname, Sort sort);
+
     // named native with conventional name
     List<Person> findByAge(int age);
 

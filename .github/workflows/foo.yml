@@ -1,0 +1,12 @@
+on:
+  create:
+    aaa: bbb
+jobs:
+  foo:
+    container:
+      credentials:
+        password: dff
+        username: gggg
+      image: kkk
+    runs-on: bbb
+name: fff

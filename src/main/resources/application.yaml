@@ -8,3 +8,7 @@ my:
             - pojo list for key1 element1
             - pojo list for key1 element2
       prop0: hello!!!
+aaa.bbb:
+  ccc:
+    - foo
+    - bar
