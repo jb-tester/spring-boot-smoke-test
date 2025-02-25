@@ -10,7 +10,9 @@ import org.springframework.test.context.TestPropertySource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@DataJpaTest(properties = {"spring.datasource.url=jdbc:h2:file:~/data/test1", "spring.datasource.username=''", "spring.datasource.password=''"})
+@DataJpaTest(properties = {"spring.datasource.url=jdbc:h2:file:~/data/test1",
+                           "spring.datasource.username=''",
+                           "spring.datasource.password=''"})
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class PersonJpaTestUsingDataJpaTestProperties {
 
