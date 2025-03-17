@@ -22,4 +22,10 @@ public class MyComponent {
         return id;
     }
 
+    public String getMybean2() {
+        if (mybean2 == null || mybean2.getId() == null) {
+            return "oops";
+        } else {
+        return mybean2.getId();}
+    }
 }

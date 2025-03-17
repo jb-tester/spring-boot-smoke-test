@@ -8,7 +8,31 @@ my:
             - pojo list for key1 element1
             - pojo list for key1 element2
       prop0: hello!!!
-aaa.bbb:
-  ccc:
-    - foo
-    - bar
+
+custom:
+  config:
+    str-list:      # String[] strList
+      - p11
+      - p12
+      - p13
+    map:            # Map<String, String> map
+      k1: v1
+      k2: v2
+    map-list:  # Map<String, List<String>> mapList
+      k1:
+        - str1
+        - str2
+      k2:
+        - str3
+        - str4
+    map-str-pojo:  # Map<String, NewInnerPojo> mapStrPojo
+      k1:
+        str: k1_str   # String NewInnerPojo#str
+        str-set:      # Set<String> NewInnerPojo#strSet
+          - s1
+          - s2
+      k2:
+        str: k2_str
+        str-set:
+          - s3
+          - s4

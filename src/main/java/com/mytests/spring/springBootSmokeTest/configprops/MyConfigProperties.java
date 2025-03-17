@@ -18,7 +18,7 @@ public class MyConfigProperties {
 
     Map<String,InnerPojo> pojoMap;
 
-    private class InnerPojo {
+    public static class InnerPojo {
         String str;
         List<String> strList;
 
