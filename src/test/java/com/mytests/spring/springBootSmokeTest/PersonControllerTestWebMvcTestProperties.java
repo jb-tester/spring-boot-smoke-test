@@ -1,6 +1,5 @@
 package com.mytests.spring.springBootSmokeTest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mytests.spring.springBootSmokeTest.data.PersonRepository;
 import com.mytests.spring.springBootSmokeTest.web.PersonRestController;
 import org.junit.jupiter.api.Test;

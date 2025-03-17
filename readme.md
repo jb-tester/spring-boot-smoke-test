@@ -39,3 +39,5 @@
   17. Endpoints view: check the URLs presence, check the tabs
   18. Runtime beans/request mappings: check that the components get the navigable gutter icons in runtime; check the controller mapping methods runtime gutter icons
   19. Test classes: check the URLs completion/navigation for different tests 
+  20. Test classes: check the mocked beans treating
+  21. Test classes: check configuration properties in test annotations 

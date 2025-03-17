@@ -26,11 +26,12 @@ class PersonRestControllerByTestRestTemplateTest {
 
     @Test
     public void testPostPerson() throws Exception {
-        String personJson = "{\n" +
-                            "  \"firstname\": \"John\",\n" +
-                            "  \"lastname\": \"Doe\",\n" +
-                            "  \"age\": 10\n" +
-                            "}";
+        String personJson = """
+                {
+                  "firstname": "John",
+                  "lastname": "Doe",
+                  "age": 10
+                }""";
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<String> request = new HttpEntity<>(personJson, headers);
