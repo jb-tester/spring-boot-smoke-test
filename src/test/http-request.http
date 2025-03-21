@@ -1,0 +1,29 @@
+
+###
+GET http://localhost:8081/spring_smoke/all
+
+<> 2025-03-21T211927.200.json
+
+###
+GET http://localhost:8081/spring_smoke/customByLastname/Pupkin
+
+<> 2025-03-21T212055.200.txt
+
+###
+GET http://localhost:8081/spring_smoke/getNamesByAge/18
+
+<> 2025-03-21T212127.200.txt
+
+###
+POST http://localhost:8081/spring_smoke/addPersonRest
+Content-Type: application/json
+
+{
+  "firstname": "aaa",
+  "lastname": "bbb",
+  "age": 10
+}
+
+<> 2025-03-21T212237.200.txt
+
+###

@@ -1,6 +1,7 @@
 package com.mytests.spring.springBootSmokeTest.events;
 
 import com.mytests.spring.springBootSmokeTest.configprops.NewConfigProps;
+import com.mytests.spring.springBootSmokeTest.data.Person;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.event.EventListener;
@@ -36,5 +37,8 @@ public class ListeningComponent {
         System.out.println("+++event occurred!!!!");
     }*/
 
-
+    @EventListener(PersonCreationEvent.class)
+    public void syncUserToExternalSystem(PersonCreationEvent event) {
+        System.out.println("New person event: " + event.getText());
+    }
 }
