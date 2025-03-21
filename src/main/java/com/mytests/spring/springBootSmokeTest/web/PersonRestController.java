@@ -2,6 +2,8 @@ package com.mytests.spring.springBootSmokeTest.web;
 
 import com.mytests.spring.springBootSmokeTest.data.Person;
 import com.mytests.spring.springBootSmokeTest.data.PersonRepository;
+import com.mytests.spring.springBootSmokeTest.data.PersonService;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,40 +13,29 @@ import java.util.List;
 @RestController
 public class PersonRestController {
 
-    private final PersonRepository repository;
+    private final PersonService personService;
 
-    public PersonRestController(PersonRepository repository) {
-        this.repository = repository;
+    public PersonRestController(PersonService personService) {
+        this.personService = personService;
     }
 
     @GetMapping("/all")
     public List<Person> getAll() {
-
-        return repository.findAll();
+        return personService.getAllPersons();
     }
 
     @GetMapping("/customByLastname/{name}")
     public String personByLastName(@PathVariable String name) {
-        StringBuilder rez = new StringBuilder();
-        List<Person> people = repository.customByNameQuery(name);
-        people.iterator().forEachRemaining(rez::append);
-        return String.valueOf(rez);
+        return personService.getAllByLastname(name);
     }
 
-    @Transactional
     @PostMapping("/addPersonRest")
     public String addPerson(@RequestBody Person person) {
-        repository.save(person);
-        return "New person " + person + " was added";
+        return personService.savePerson(person);
     }
 
     @GetMapping("/getNamesByAge/{age:[0-9]+}")
     public String getNamesByAge(@PathVariable("age") int age) {
-        StringBuilder res = new StringBuilder();
-        for (Person person : repository.findByAgeGreaterThan(age)) {
-            res.append(person.getFirstname()).append(" ").append(person.getLastname()).append(", ");
-        }
-
-        return String.valueOf(res);
+        return personService.getNamesOfPeopleOfSpecifiedAge(age);
     }
-}    
+}

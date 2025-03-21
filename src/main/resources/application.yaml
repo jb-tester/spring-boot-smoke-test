@@ -36,3 +36,5 @@ custom:
         str-set:
           - s3
           - s4
+    pojo:
+      str: hello
