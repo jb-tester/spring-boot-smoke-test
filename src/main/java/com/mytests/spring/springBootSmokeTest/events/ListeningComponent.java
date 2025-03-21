@@ -38,6 +38,6 @@ public class ListeningComponent {
 
     @EventListener(PersonCreationEvent.class)
     public void listenPersonAddingEvent(PersonCreationEvent event) {
-        System.out.println("New person event: " + event.getText());
+        System.out.println("New person event: " + event.getText() + "; id: " + event.getId());
     }
 }
