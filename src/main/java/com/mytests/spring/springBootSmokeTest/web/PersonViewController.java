@@ -3,6 +3,7 @@ package com.mytests.spring.springBootSmokeTest.web;
 import com.mytests.spring.springBootSmokeTest.components.MyComponent;
 import com.mytests.spring.springBootSmokeTest.data.Person;
 import com.mytests.spring.springBootSmokeTest.data.PersonRepository;
+import com.mytests.spring.springBootSmokeTest.data.PersonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,11 +14,11 @@ import java.util.List;
 @Controller
 public class PersonViewController {
 
-    private final PersonRepository repository;
     private final MyComponent myComponent;
+    private final PersonService personService;
 
-    public PersonViewController(PersonRepository repository, MyComponent myComponent) {
-        this.repository = repository;
+    public PersonViewController(MyComponent myComponent, PersonService personService) {
+        this.personService = personService;
         this.myComponent = myComponent;
     }
 
@@ -25,7 +26,7 @@ public class PersonViewController {
     @RequestMapping("/")
     public String home(ModelMap model) {
         model.addAttribute("greeting", myComponent.getId());
-        List<Person> personList = repository.findAll();
+        List<Person> personList = personService.getAllPersons();
         model.addAttribute("people", personList);
         return "home";
     }

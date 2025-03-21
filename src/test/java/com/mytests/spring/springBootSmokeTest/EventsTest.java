@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.event.ApplicationEvents;
 import org.springframework.test.context.event.RecordApplicationEvents;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @RecordApplicationEvents
@@ -23,6 +23,12 @@ public class EventsTest {
     private PersonService userService;
 
     @Test
+    void testThatSomeEventsArePublished() {
+        assertNotEquals(0,applicationEvents.stream().count());
+        applicationEvents.stream().forEach(System.out::println);
+    }
+
+    @Test
     void userCreationShouldPublishEvent() {
         this.userService.savePerson(new Person("Donald", "Duck", 30));
 
@@ -31,6 +37,5 @@ public class EventsTest {
                 .filter(event -> event.getText().equals("New person Donald Duck was added"))
                 .count());
 
-        applicationEvents.stream().forEach(System.out::println);
     }
 }

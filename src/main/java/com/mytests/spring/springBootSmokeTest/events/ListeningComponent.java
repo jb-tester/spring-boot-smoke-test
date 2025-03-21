@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ListeningComponent {
 
-
     private final NewConfigProps newConfigProps;
 
     public ListeningComponent(NewConfigProps newConfigProps) {
@@ -38,7 +37,7 @@ public class ListeningComponent {
     }*/
 
     @EventListener(PersonCreationEvent.class)
-    public void syncUserToExternalSystem(PersonCreationEvent event) {
+    public void listenPersonAddingEvent(PersonCreationEvent event) {
         System.out.println("New person event: " + event.getText());
     }
 }

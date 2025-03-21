@@ -31,13 +31,15 @@
   13. Repositories: @Query annotations
       * _Expected result_
           - JPQL is autoinjected to the annotation
-  14. Run in Services view
+  14. Events: check gutter navigation, check SpEL in @EventListener
+  15. Run in Services view
       * _Expected result_
           - the port is displayed; Actuator tabs (Beans, Health, Mappings)
-  15. Spring Diagrams test: invoke from gutter icon, from the context menu, from the Spring view toolbar
-  16. Edit Starters check: add/remove some dependencies
-  17. Endpoints view: check the URLs presence, check the tabs
-  18. Runtime beans/request mappings: check that the components get the navigable gutter icons in runtime; check the controller mapping methods runtime gutter icons
-  19. Test classes: check the URLs completion/navigation for different tests 
-  20. Test classes: check the mocked beans treating
-  21. Test classes: check configuration properties in test annotations 
+  16. Spring Diagrams test: invoke from gutter icon, from the context menu, from the Spring view toolbar
+  17. Edit Starters check: add/remove some dependencies
+  18. Endpoints view: check the URLs presence, check the tabs
+  19. Runtime beans/request mappings: check that the components get the navigable gutter icons in runtime; check the controller mapping methods runtime gutter icons
+  20. Test classes: check the URLs completion/navigation for different tests 
+  21. Test classes: check the mocked beans treating
+  22. Test classes: check configuration properties in test annotations 
+  23. Test classes: check @RecordApplicationEvents
