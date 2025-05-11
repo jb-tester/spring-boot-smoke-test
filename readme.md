@@ -31,6 +31,7 @@
   13. Repositories: @Query annotations
       * _Expected result_
           - JPQL is autoinjected to the annotation
+  14. Beans: check the beans autowiring: qualified beans (see `MyComponent` class)
   14. Run in Services view
       * _Expected result_
           - the port is displayed; Actuator tabs (Beans, Health, Mappings)
