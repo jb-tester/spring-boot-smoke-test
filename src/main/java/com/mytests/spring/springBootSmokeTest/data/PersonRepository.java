@@ -17,12 +17,14 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 
     List<Person> findByAgeGreaterThan(int age);
 
+    List<Person> findByAgeLessThan(int ageIsLessThan);
+
 
     List<Person> getPersonByLastnameAndFirstname(String lastname, String firstname, Sort sort);
-
     // named native with conventional name
-    List<Person> findByAge(int age);
 
+    List<Person> findByAge(int age);
     // named jpa with non-conventional name
+
     List<Person> myNamedQuery(String ln);
 }

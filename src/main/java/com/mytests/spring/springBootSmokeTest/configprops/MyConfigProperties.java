@@ -9,14 +9,27 @@ import java.util.Map;
 
 @ConfigurationProperties("my.conf.props")
 public class MyConfigProperties {
-    public MyConfigProperties(String prop0, Map<String, InnerPojo> pojoMap) {
+    private boolean flag = false;
+    String prop0 = "prop0_default";
+    Map<String,InnerPojo> pojoMap;
+
+    public MyConfigProperties(boolean flag, String prop0, Map<String, InnerPojo> pojoMap) {
         this.prop0 = prop0;
         this.pojoMap = pojoMap;
+        this.flag = flag;
     }
 
-    String prop0 = "prop0_default";
+    public String getProp0() {
+        return prop0;
+    }
 
-    Map<String,InnerPojo> pojoMap;
+    public Map<String, InnerPojo> getPojoMap() {
+        return pojoMap;
+    }
+
+    public boolean isFlag() {
+        return flag;
+    }
 
     public static class InnerPojo {
         String str;
