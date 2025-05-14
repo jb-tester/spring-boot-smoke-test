@@ -1,6 +1,7 @@
 package com.mytests.spring.springBootSmokeTest;
 
 import com.mytests.spring.springBootSmokeTest.data.PersonRepository;
+import com.mytests.spring.springBootSmokeTest.data.PersonService;
 import com.mytests.spring.springBootSmokeTest.web.PersonRestController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,11 @@ public class PersonControllerTestWebMvcTestProperties {
     @Autowired
     private MockMvc mvc;
 
-    @MockitoBean
-    PersonRepository personRepository;
+   /* @MockitoBean
+    PersonRepository personRepository;*/
 
+    @MockitoBean
+    PersonService personService;
     @Test
     public void getAllTest() throws Exception {
 
@@ -30,6 +33,6 @@ public class PersonControllerTestWebMvcTestProperties {
 
     @Test
     void testRepoExists() {
-        assert personRepository != null;
+        assert personService != null;
     }
 }
