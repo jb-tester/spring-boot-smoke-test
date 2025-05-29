@@ -17,6 +17,7 @@ class PersonRestControllerByTestRestTemplateTest {
     @Autowired
     private TestRestTemplate template;
 
+    // no url navigation if context-path is set - https://youtrack.jetbrains.com/issue/IDEA-373664/Spring-Web-Testing-with-context-path-set-the-URLs-in-tests-are-not-navigable
     @Test
     public void getByAgeTest() throws Exception {
         ResponseEntity<String> response = template.getForEntity("/getNamesByAge/25", String.class);

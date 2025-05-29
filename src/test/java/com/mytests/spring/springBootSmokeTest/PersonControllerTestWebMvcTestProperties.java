@@ -19,8 +19,7 @@ public class PersonControllerTestWebMvcTestProperties {
     @Autowired
     private MockMvc mvc;
 
-   /* @MockitoBean
-    PersonRepository personRepository;*/
+
 
     @MockitoBean
     PersonService personService;
