@@ -1,10 +1,7 @@
 package com.mytests.spring.springBootSmokeTest.web;
 
 import com.mytests.spring.springBootSmokeTest.data.Person;
-import com.mytests.spring.springBootSmokeTest.data.PersonRepository;
 import com.mytests.spring.springBootSmokeTest.data.PersonService;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
