@@ -3,6 +3,7 @@ package com.mytests.spring.springBootSmokeTest;
 import com.mytests.spring.springBootSmokeTest.components.MyComponent;
 import com.mytests.spring.springBootSmokeTest.configs.beans.B1;
 import com.mytests.spring.springBootSmokeTest.configs.beans.B2;
+import com.mytests.spring.springBootSmokeTest.data.PersonRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class MockitoBeansTest {
  @Autowired private MyComponent myComponent;
  @Autowired private B1 mybean11;
  @MockitoBean private B2 b2;
+
+ @MockitoBean
+ private PersonRepository repository;
 
    @Test
    public void myComponentTest() {
