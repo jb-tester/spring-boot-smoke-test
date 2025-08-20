@@ -1,20 +1,28 @@
 package com.mytests.spring.springBootSmokeTest.events;
 
 import com.mytests.spring.springBootSmokeTest.configprops.NewConfigProps;
-import com.mytests.spring.springBootSmokeTest.data.Person;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.event.TransactionalEventListener;
+
+import java.time.LocalDate;
 
 @Component
-public class ListeningComponent {
+public class MainListeningComponent {
 
     private final NewConfigProps newConfigProps;
+    private final PersonEventRepository personEventRepository;
 
-    public ListeningComponent(NewConfigProps newConfigProps) {
+    public MainListeningComponent(NewConfigProps newConfigProps, PersonEventRepository personEventRepository) {
         this.newConfigProps = newConfigProps;
+        this.personEventRepository = personEventRepository;
     }
+
 
     @MyEventListener(eventClasses = MyEvent1.class, listenIf = "(#event1.text=='myEvent1 occurred')and(#event1.count > 5)")
     public void listenMyEvent1IfConditionCustom(MyEvent1 event1){
@@ -36,8 +44,16 @@ public class ListeningComponent {
         System.out.println("+++event occurred!!!!");
     }*/
 
-    @EventListener(PersonCreationEvent.class)
+    @Async
+    @Transactional(
+            propagation = Propagation.REQUIRES_NEW
+    )
+    @TransactionalEventListener
+    //@EventListener(PersonCreationEvent.class)
     public void listenPersonAddingEvent(PersonCreationEvent event) {
-        System.out.println("New person event: " + event.getText() + "; id: " + event.getId());
+        String text = event.getText();
+        Long id = event.getId();
+        System.out.println("New person event: " + text + "; id: " + id);
+        personEventRepository.save(new PersonEvent(text, "person event with id "+id, LocalDate.now()));
     }
 }

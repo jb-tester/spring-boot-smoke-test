@@ -8,9 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
 @ConfigurationPropertiesScan(basePackages = "com.mytests.spring.springBootSmokeTest.configprops")
+@EnableAsync
 public class SpringBootSmokeTestApplication {
 
     public static void main(String[] args) {
