@@ -1,6 +1,7 @@
 package com.mytests.spring.springBootSmokeTest.events;
 
 import com.mytests.spring.springBootSmokeTest.configprops.NewConfigProps;
+import com.mytests.spring.springBootSmokeTest.data.PersonService;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.event.EventListener;
@@ -16,11 +17,11 @@ import java.time.LocalDate;
 public class MainListeningComponent {
 
     private final NewConfigProps newConfigProps;
-    private final PersonEventRepository personEventRepository;
+    private final PersonService personService;
 
-    public MainListeningComponent(NewConfigProps newConfigProps, PersonEventRepository personEventRepository) {
+    public MainListeningComponent(NewConfigProps newConfigProps, PersonService personService) {
         this.newConfigProps = newConfigProps;
-        this.personEventRepository = personEventRepository;
+        this.personService = personService;
     }
 
 
@@ -50,10 +51,10 @@ public class MainListeningComponent {
     )
     @TransactionalEventListener
     //@EventListener(PersonCreationEvent.class)
-    public void listenPersonAddingEvent(PersonCreationEvent event) {
-        String text = event.getText();
-        Long id = event.getId();
-        System.out.println("New person event: " + text + "; id: " + id);
-        personEventRepository.save(new PersonEvent(text, "person event with id "+id, LocalDate.now()));
+    public void listenPersonAddingEventAndPrintTheResultedDB(PersonCreationEvent event) {
+        System.out.println("Main listener: personCreationEvent occurred: person "  + event.getText() + " was added");
+        System.out.println("Now all persons: ");
+        personService.getAllPersons().forEach(System.out::println);
+        System.out.println("++++++++++++++++");
     }
 }

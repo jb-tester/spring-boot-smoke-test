@@ -19,9 +19,9 @@ POST http://localhost:8081/spring_smoke/addPersonRest
 Content-Type: application/json
 
 {
-  "firstname": "aaa",
-  "lastname": "bbb",
-  "age": 10
+  "firstname": "Ivan",
+  "lastname": "Ivanov",
+  "age": 30
 }
 
 <> 2025-03-21T212237.200.txt
